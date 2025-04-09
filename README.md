@@ -16,7 +16,9 @@ You will deploy the web server on **Google Cloud Run**, use **Google Cloud Ident
 ---
 
 ### YOUR APPLICATION URL HERE!
+https://tabs-vs-spaces-15936136664.us-central1.run.app
 
+Here's my own repo that I originally pushed to: https://github.com/HenryUz/cloud-run-HenryUz-main
 ---
 
 ## Docs
