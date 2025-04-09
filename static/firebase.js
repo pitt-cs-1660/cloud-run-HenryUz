@@ -116,11 +116,30 @@ async function vote(team) {
     // refresh the token and return a new one.
     try {
       const token = await createIdToken();
+      console.log(`Token obtained: ${token}`);
+      
+      //post request here
+      let response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": `Bearer ${token}`
+        },
+        body: new URLSearchParams({team})
+      });
 
-      /*
-       * ++++ YOUR CODE HERE ++++
-       */
-      window.alert(`Not implemented yet!`);
+      console.log("Response status: ", response.status); 
+      if (!response.ok)
+      {
+        let errorData = await response.json();
+        console.log("Error when submitting vote: ", errorData);
+        window.alert("Vote submission failed!");
+        return;
+      }
+      //otherwise, vote is successful so process it
+      console.log("Vote submitted successfully!");
+      window.alert("Vote submitted successfuly!");
+      window.location.reload();
 
     } catch (err) {
       console.log(`Error when submitting vote: ${err}`);
